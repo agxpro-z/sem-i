@@ -1,16 +1,22 @@
 #!/env python3
-
+#
+# (C) @agxpro
+#
 '''
     Program to convert propositional logic into simplest form
     containing AND, OR and NOT
 '''
 
-# Method to resolve impication and biconditional
-#
-# @param
-#   s = string containing logical equation
-#
 def simplify(s):
+    '''
+    Method to resolve logical equation containing impication and biconditional
+
+    Note: First biconditionals are resolved then conditionals
+
+      @param
+        s = string containing logical equation
+
+    '''
     def resolve(s, imply=True):
         # Set connective type
         connective = ''
@@ -134,22 +140,18 @@ def simplify(s):
             # Return the implication or biconditional free logical equation
             return s
 
-    # Resolve biconditional
-    s = resolve(s, False)
-    # Resolve implication
-    s = resolve(s, True)
-
     # Return simplified logical equation
-    return s
+    return resolve(resolve(s, False), True)
 
-# Take logical equation from user
-print('''\tLogical equation simplifier
+if __name__ == '__main__':
+    # Take logical equation from user
+    print('''\tLogical equation simplifier
 
-  Usage: AND = '&', OR = '|', NOT = '~',
-        IMPLICATION = '>', BICONDITIONAL = '-'
-''')
-print("Enter value: ", end="")
-logic = input()
+      Usage: AND = '&', OR = '|', NOT = '~',
+            IMPLICATION = '>', BICONDITIONAL = '-'
+    ''')
+    print("Enter value: ", end="")
+    logic = input()
 
-# Solve and print equation
-print(simplify(logic))
+    # Solve and print equation
+    print(simplify(logic))
