@@ -56,7 +56,7 @@ f = f.replace('~', " not ")
 f = f.replace('&', " and ")
 f = f.replace('|', " or ")
 
-# Print logical equation with variables truth values take from the table
+# Print logical equation with variables truth values taken from the table
 for x in range(0, len(s)):
     print(f"{s[x]}='{user[x]}'", end="")
     if x == len(s) - 1:

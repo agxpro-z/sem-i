@@ -67,7 +67,7 @@ for t in table:
     f = f.replace('&', " and ")
     f = f.replace('|', " or ")
 
-    # Print logical equation with variables truth values take from the table
+    # Print logical equation with variables truth values taken from the table
     for x in range(0, len(s)):
         print(f"{s[x]}='{t[x]}'", end="")
         if x == len(s) - 1:
