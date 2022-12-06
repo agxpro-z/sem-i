@@ -50,7 +50,7 @@ f = simplified_formula
 # Replace varibles in logical equation with 0's and 1's
 # According to their truth values in the table
 for i in range(0, len(s)):
-    f = f.replace(s[i], 'True' if user[i] == 'T' else 'False')
+    f = f.replace(s[i], '1' if user[i] == 'T' else '0')
 
 f = f.replace('~', " not ")
 f = f.replace('&', " and ")
@@ -69,4 +69,4 @@ f = "e = " + f
 exec(f)
 
 # Print truth value of the equation
-print(e)
+print('True' if e else 'False')
