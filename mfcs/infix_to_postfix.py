@@ -78,7 +78,7 @@ def infix_to_postfix(s):
                 post_string_second = ''
 
                 # Find values before operator
-                if s[index - 1].isalpha():
+                if s[index - 1].isalnum():
                     # Set values if there is only one character before operator
                     pre_string_first = s[:index - 1]
                     pre_string_second = s[index - 1]
@@ -99,7 +99,7 @@ def infix_to_postfix(s):
                                 pre_string_first = s[i] + pre_string_first
 
                 # Find values after operator
-                if s[index + 1].isalpha():
+                if s[index + 1].isalnum():
                     # Set values if there is only one character after operator
                     post_string_first = s[index + 1]
                     post_string_second = s[index + 2:]
