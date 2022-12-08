@@ -37,7 +37,7 @@ def findRoutes(pathSet, vertex_list, end):
 
 # Function to print shortest paths
 def printShortestPath(routes):
-    short = 0 # Length of shortest path
+    short = 0 if len(routes) == 0 else len(routes[0]) # Length of shortest path
     nshort = 0 # No. of shortest paths exists
     paths = '' # String to hold all paths together
 
