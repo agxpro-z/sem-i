@@ -13,7 +13,7 @@ vertex = [] # List to store all vertices
 
 # Check if there's a edge between two vertices
 def isPath(start, x):
-    return f"{start}-{x}" in edges
+    return f"{start}-{x}" in edges or f"{x}-{start}" in edges
 
 # Method to find all routes between starting and ending point
 def findRoutes(pathSet, vertex_list, end):
