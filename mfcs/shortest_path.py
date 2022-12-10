@@ -13,12 +13,13 @@ vertex = [] # List to store all vertices
 
 # Check if there's a edge between two vertices
 def isPath(start, x):
-    return f"{start}-{x}" in edges or f"{x}-{start}" in edges
+    return [f"{start}", f"{x}"] in edges or [f"{x}", f"{start}"] in edges
 
 # Method to find all routes between starting and ending point
 def findRoutes(pathSet, vertex_list, end):
     # Set starting point
-    start = int(pathSet[-1])
+    p = pathSet.split('-')
+    start = int(p[-1])
 
     if start == end or len(vertex_list) == 0:
         # if start is equal to end then we'are already at our destination
@@ -85,6 +86,8 @@ print("Enter edges: Eg. 1-2 3-4: ", end="")
 paths = input()
 # Set edges
 edges = paths.split()
+for i in range(len(edges)):
+    edges[i] = edges[i].split('-')
 
 print("Enter starting and ending vertex: Eg. 1-4: ", end="")
 source_dist = input()
