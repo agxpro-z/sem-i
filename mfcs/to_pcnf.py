@@ -54,7 +54,8 @@ generate_table("", len(s))
 simplified_formula = simplify(formula)
 
 print("")
-# Print truth table for the given formula
+# Print PCNF notation for the given formula
+pcnf = '' # PCNF notation holder
 for t in table:
     f = simplified_formula
 
@@ -73,12 +74,17 @@ for t in table:
 
     # PCNF
     if e == False:
-        print("(", end="")
+        pcnf += "("
         for x in range(0, len(s)):
-            print("{}".format(s[x] if t[x] == 'F' else f"~{s[x]}"), end="")
+            pcnf += "{}".format(s[x] if t[x] == 'F' else f"~{s[x]}")
             if x != len(s) - 1:
-                print(" | ", end="")
+                pcnf += " | "
 
-        print(") & " if t != table[-1] else ")", end="")
+        pcnf += ") & " if t != table[-1] else ")"
 
-print("")
+# Trim trailing '&'
+if pcnf[-2] == '&':
+    pcnf = pcnf[:-3]
+
+# Print finalized notation
+print(pcnf)
