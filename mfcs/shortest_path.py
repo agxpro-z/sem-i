@@ -10,10 +10,14 @@
 edges = [] # List to store all the edges
 routes = [] # List to store all possible paths
 vertex = [] # List to store all vertices
+graph_type = '' # Type of graph, directed or undirected
 
 # Check if there's a edge between two vertices
 def isPath(start, x):
-    return [f"{start}", f"{x}"] in edges or [f"{x}", f"{start}"] in edges
+    if graph_type == 'd':
+        return [f"{start}", f"{x}"] in edges
+    else:
+        return [f"{start}", f"{x}"] in edges or [f"{x}", f"{start}"] in edges
 
 # Method to find all routes between starting and ending point
 def findRoutes(pathSet, vertex_list, end):
@@ -95,6 +99,11 @@ source_dist = input()
 source_dist = source_dist.split('-')
 startV = int(source_dist[0])
 endV = int(source_dist[1])
+
+# Take type of graph form the user. Eg. Directed or Undirected
+print("Type of graph: (U)ndirected or (D)irected: ", end="")
+graph_type = input() or 'U'
+graph_type = graph_type.lower()
 
 # Check for invalid starting and ending point
 if startV > vert or endV > vert or startV < 0 or endV < 0:

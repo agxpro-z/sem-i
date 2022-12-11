@@ -10,10 +10,14 @@
 edges = [] # List to store all the edges
 routes = [] # List to store all possible paths
 vertex = [] # List to store all vertices
+graph_type = '' # Type of graph, directed or undirected
 
 # Check if there's a edge between two vertices
 def isPath(start, x):
-    return [f"{start}", f"{x}"] in edges or [f"{x}", f"{start}"] in edges
+    if graph_type == 'd':
+        return [f"{start}", f"{x}"] in edges
+    else:
+        return [f"{start}", f"{x}"] in edges or [f"{x}", f"{start}"] in edges
 
 # Method to find all cycle components
 def findCycleComponent(pathSet, vertex_list, end):
@@ -52,6 +56,11 @@ paths = input()
 edges = paths.split()
 for i in range(len(edges)):
     edges[i] = edges[i].split('-')
+
+# Take type of graph form the user. Eg. Directed or Undirected
+print("Type of graph: (U)ndirected or (D)irected: ", end="")
+graph_type = input() or 'U'
+graph_type = graph_type.lower()
 
 # Set vertex
 for x in range(0, vert + 1):
