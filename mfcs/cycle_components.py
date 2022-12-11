@@ -80,14 +80,7 @@ if (len(routes) > 0):
         # If rotated copy of copy exists in the components list
         # then don't add it to the final components list
         if not flag:
-            s = ''
-            for x in enumerate(y):
-                if x[0] == 0:
-                    s += f"{x[1]}"
-                else:
-                    s += f"-{x[1]}"
-            s += f"-{y[0]}"
-            new_routes.append(s)
+            new_routes.append("-".join(y) + f"-{y[0]}")
 
 # Remove more redundant cycle components
 for nr in new_routes:
@@ -101,11 +94,6 @@ for nr in new_routes:
 # Print cycle components if exist
 if len(new_routes) > 0:
     print("Cycle component/s: ", end="")
-    for c in enumerate(new_routes):
-        if c[0] == 0:
-            print(c[1], end="")
-        else:
-            print(",", c[1], end="")
-    print('')
+    print(", ".join(new_routes))
 else:
     print("No cycle component exist.")
