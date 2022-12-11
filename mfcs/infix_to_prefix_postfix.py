@@ -3,10 +3,10 @@
 # (C) @agxpro
 #
 
-def infix_to_postfix(s):
+def infix_to_prefix_postfix(s, prefix=False):
     """
-        Method to convert simple mathematical infix notation to postfix
-        using recursion and wihout using stacks.
+        Method to convert simple mathematical infix notation to prefix
+        and postfix using recursion and wihout using stacks.
 
         @ param
             s = string containing infix notation
@@ -30,8 +30,8 @@ def infix_to_postfix(s):
         # Return -1 if index not found
         return -1
 
-    # Convert infix notation to postfix
-    def convert(s):
+    # Convert infix notation to prefix or postfix
+    def convert(s, prefix):
         # Remove white spaces
         s = s.replace(' ', '')
 
@@ -59,16 +59,17 @@ def infix_to_postfix(s):
             # Recurse again with the notation inside parenthesis
             # This substring may contain more pair of parenthesis
             # which requires further removal, if not then convert
-            # the notation from infix to postfix
-            new_s = convert(s[pre_index + 1 : post_index])
+            # the notation from infix to prefix or postfix
+            new_s = convert(s[pre_index + 1 : post_index], prefix)
 
             # Replace notation inside parenthesis containing more
-            # pairs of parenthesis and infix notation with postfix
+            # pairs of parenthesis and infix notation with prefix
+            # or postfix
             s = s[:pre_index] + new_s + s[post_index + 1:]
 
         def solve(s, c):
             # Repeat until all notations and sub-notations (notations inside
-            # parenthesis) are converted to postfix
+            # parenthesis) are converted to prefix or postfix
             while (index := operator_index(s, c)) != -1:
                 # Temporary strings to hold notation before conversion
                 pre_string_first = ''
@@ -119,8 +120,11 @@ def infix_to_postfix(s):
                             else:
                                 post_string_second = post_string_second + s[i]
 
-                # Merge all value into one, forming postfix notation
-                s = pre_string_first + '{' + pre_string_second + post_string_first + operator + '}' + post_string_second
+                # Merge all value into one, forming prefix or postfix notation
+                if prefix:
+                    s = pre_string_first + '{' + operator + pre_string_second + post_string_first + '}' + post_string_second
+                else:
+                    s = pre_string_first + '{' + pre_string_second + post_string_first + operator + '}' + post_string_second
 
             # Return converted values
             return s
@@ -128,16 +132,18 @@ def infix_to_postfix(s):
         # Convert all opertors sequentially and return the string
         return solve(solve(solve(solve(solve(s, '^'), '/'), '*'), '+'), '-')
 
-    # Convert infix notation to postfix
-    s = convert(s)
+    # Convert infix notation to prefix or postfix
+    s = convert(s, prefix)
 
     # Remove all braces
     s = s.replace('{', '')
     s = s.replace('}', '')
 
-    # Return postfix notation
+    # Return prefix or postfix notation
     return s
 
-print('\tInfix to postfix\n')
+print('\tInfix to prefix and postfix\n')
 print("Enter input: ", end="")
-print(infix_to_postfix(input()))
+equation = input()
+print("Prefix notation: ", infix_to_prefix_postfix(equation, True))
+print("Postfix notation:", infix_to_prefix_postfix(equation, False))
