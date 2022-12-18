@@ -7,8 +7,8 @@
 void clearInput();
 
 /*
- * Print welcome message
+ * Print Game Menu
  */
-void printWelcome();
+void menu();
 
 #endif

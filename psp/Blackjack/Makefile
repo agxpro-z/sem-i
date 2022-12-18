@@ -12,7 +12,7 @@ binary: main.o card.o deck.o extra.o game.o
 	@echo
 	@echo Linking...
 	@g++ $(CC_VERSION) $(CC_FLAGS) -o $@ $?
-	@echo "$? => binary"
+	@echo "$? -> binary"
 
 main.o: main.cpp
 	@echo building...

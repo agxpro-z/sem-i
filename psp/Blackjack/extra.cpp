@@ -10,8 +10,14 @@ void clearInput() {
 }
 
 /*
- * Print welcome message
+ * Print Game Menu
  */
-void printWelcome() {
+void menu() {
     std::cout << "\n\tWelcome to Blackjack\t\n\n";
+    std::cout << "\t  Menu: \n";
+    std::cout << "\t    1. Start Game\n";
+    std::cout << "\t    2. Print Deck\n";
+    std::cout << "\t    3. Suffle Deck\n";
+    std::cout << "\t    4. Exit\n";
+    std::cout << '\n' << "     Enter number of the option: ";
 }

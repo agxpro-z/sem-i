@@ -11,7 +11,7 @@ void Card::print() const {
     // Print card rank
     switch (cardRank) {
         case ACE:
-            cout << '1';
+            cout << 'A';
             break;
         case TWO:
             cout << '2';
