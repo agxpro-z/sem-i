@@ -6,22 +6,31 @@
 #include "card.hpp"
 
 /*
- * Create Card Deck
- *
- * Takes Card array and assignes card values to all
+ * Cards deck class
  */
-std::array<Card, 52> creatDeck();
+class Deck {
+  private:
+    std::array<Card, 52> cardDeck{};
 
-/*
- * Shuffle card deck
- *
- * Shuffles deck of card using mt19937 random function
- */
-void shuffleDeck(std::array<Card, 52>& cardDeck);
+  public:
+    Deck();
 
-/*
- * Print all cards numbers of the deck
- */
-void printDeck(const std::array<Card, 52>& cardDeck);
+    /*
+     * Shuffle card deck
+     *
+     * Shuffles deck of card using mt19937 random function
+     */
+    void shuffle();
+
+    /*
+     * Print all cards numbers of the deck
+     */
+    void print();
+
+    /*
+     * Return a card from cardDeck
+     */
+    const Card& operator[](int n);
+};
 
 #endif

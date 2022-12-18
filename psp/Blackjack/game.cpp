@@ -1,5 +1,6 @@
 #include <array>
 #include <iostream>
+
 #include "card.hpp"
 #include "deck.hpp"
 #include "extra.hpp"
@@ -8,7 +9,7 @@
 /*
  * Blackjack game
  */
-Winner playBlackjack(std::array<Card, 52>& cardDeck) {
+Winner playBlackjack(Deck& cardDeck) {
 
     int deckIndex{0};
 
@@ -93,7 +94,7 @@ void startGame() {
 
 newGame:
     printWelcome();
-    std::array<Card, 52> cardDeck{creatDeck()};
+    Deck cardDeck;
     int gameVar{};
 
     while (true) {
@@ -108,7 +109,7 @@ newGame:
 
         switch (gameVar) {
             case 1:
-                shuffleDeck(cardDeck);
+                cardDeck.shuffle();
                 switch (playBlackjack(cardDeck)) {
                     char ch;
                     case Winner::PLAYER:
@@ -139,12 +140,12 @@ newGame:
                 break;
             case 3:
                 std::cout << '\n';
-                printDeck(cardDeck);
+                cardDeck.print();
                 std::cout << "\n\n";
                 break;
             case 4:
                 std::cout << "\n\tShuffling deck...\n";
-                shuffleDeck(cardDeck);
+                cardDeck.shuffle();
                 std::cout << "\n\n";
                 break;
             case 5:
