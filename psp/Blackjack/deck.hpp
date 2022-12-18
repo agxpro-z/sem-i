@@ -1,8 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 
-#include <array>
-
+#include "array.hpp"
 #include "card.hpp"
 
 /*
@@ -10,7 +9,7 @@
  */
 class Deck {
   private:
-    std::array<Card, 52> cardDeck{};
+    array<Card, 52> cardDeck{};
 
   public:
     Deck();

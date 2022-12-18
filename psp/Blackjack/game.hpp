@@ -1,8 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <array>
-
+#include "array.hpp"
 #include "card.hpp"
 
 /*
@@ -17,7 +16,7 @@ enum class Winner {
 /*
  * Blackjack game
  */
-Winner playBlackjack(std::array<Card, 52>& cardDeck);
+Winner playBlackjack(array<Card, 52>& cardDeck);
 
 /*
  * Game menu
