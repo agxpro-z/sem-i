@@ -3,87 +3,92 @@
 #include "card.hpp"
 
 /*
- * Identifies and prints card numbers and suits
+ * Print Card
  */
-void printCard (const Card& card) {
-    using rank = CardRank;
-    using suit = CardSuit;
+void Card::print() const {
+    using namespace std;
 
-    /* Check and print card rank*/
-    switch (card.cardRank) {
-        case rank::TWO:
-            std::cout << '2';
+    // Print card rank
+    switch (cardRank) {
+        case ACE:
+            cout << '1';
             break;
-        case rank::THREE:
-            std::cout << '3';
+        case TWO:
+            cout << '2';
             break;
-        case rank::FOUR:
-            std::cout << '4';
+        case THREE:
+            cout << '3';
             break;
-        case rank::FIVE:
-            std::cout << '5';
+        case FOUR:
+            cout << '4';
             break;
-        case rank::SIX:
-            std::cout << '6';
+        case FIVE:
+            cout << '5';
             break;
-        case rank::SEVEN:
-            std::cout << '7';
+        case SIX:
+            cout << '6';
             break;
-        case rank::EIGHT:
-            std::cout << '8';
+        case SEVEN:
+            cout << '7';
             break;
-        case rank::NINE:
-            std::cout << '9';
+        case EIGHT:
+            cout << '8';
             break;
-        case rank::TEN:
-            std::cout << 'T';
+        case NINE:
+            cout << '9';
             break;
-        case rank::JACK:
-            std::cout << 'J';
+        case TEN:
+            cout << 'T';
             break;
-        case rank::QUEEN:
-            std::cout << 'Q';
+        case JACK:
+            cout << 'J';
             break;
-        case rank::KING:
-            std::cout << 'K';
+        case KING:
+            cout << 'K';
             break;
-        case rank::ACE:
-            std::cout << 'A';
+        case QUEEN:
+            cout << 'Q';
             break;
     }
 
-    /* Check and print card suit */
-    switch (card.cardSuit) {
-        case suit::CLUB:
-            std::cout << 'C';
+    // Print card suit
+    switch (cardSuit) {
+        case CLUB:
+            cout << 'C';
             break;
-        case suit::DIAMOND:
-            std::cout << 'D';
+        case DIAMOND:
+            cout << 'D';
             break;
-        case suit::HEART:
-            std::cout << 'H';
+        case HEART:
+            cout << 'H';
             break;
-        case suit::SPADE:
-            std::cout << 'S';
+        case SPADE:
+            cout << 'S';
             break;
     }
 }
 
 /*
- * returns card number of given card type
+ * Return card value
  */
-int cardValue(const Card& card) {
-    if (card.cardRank <= CardRank::TEN) {
-        return int(card.cardRank) + 2;
-    }
-
-    switch (card.cardRank) {
-        case CardRank::JACK:
-        case CardRank::QUEEN:
-        case CardRank::KING:
+int Card::value() const {
+    switch (cardRank) {
+        case ACE:
+            return 1;
+        case TWO:
+        case THREE:
+        case FOUR:
+        case FIVE:
+        case SIX:
+        case SEVEN:
+        case EIGHT:
+        case NINE:
+        case TEN:
+            return cardRank + 1;
+        case JACK:
+        case KING:
+        case QUEEN:
             return 10;
-        case CardRank::ACE:
-            return 11;
     }
     return 0;
 }

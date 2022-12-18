@@ -10,18 +10,13 @@
  */
 std::array<Card, 52> creatDeck() {
     std::array<Card, 52> cardDeck{};
-    int rankCounter{(int)CardRank::TWO};
-    int suitCounter{(int)CardSuit::CLUB};
+    int rankCounter{Card::TWO};
+    int suitCounter{Card::CLUB};
 
-    for (auto& c : cardDeck) {
-        c.cardRank = (CardRank)rankCounter;
-        c.cardSuit = (CardSuit)suitCounter;
-
-        if (rankCounter == (int)CardRank::ACE) {
-            ++suitCounter;
-            rankCounter = (int)CardRank::TWO;
-        } else {
-            ++rankCounter;
+    int index{0};
+    for (int suit{0}; suit < Card::MAX_SUIT; ++suit) {
+        for (int rank{0}; rank < Card::MAX_RANK; ++rank) {
+            cardDeck[index++] = Card(static_cast<Card::Rank>(rank), static_cast<Card::Suit>(suit));
         }
     }
     return cardDeck;
@@ -40,17 +35,10 @@ void shuffleDeck(std::array<Card, 52>& cardDeck) {
  * Print all cards of the deck
  */
 void printDeck(const std::array<Card, 52>& cardDeck) {
-    int counter {(int)CardRank::TWO};
-    for (const Card& c : cardDeck) {
-        if (counter == (int)CardRank::TWO) std::cout << '\t';
-        printCard(c);
+    std::cout << '\t';
+    for (int i{1}; i <= 52; ++i) {
+        cardDeck[i - 1].print();
         std::cout << ' ';
-        if (!(counter < (int)CardRank::ACE)) {
-            std::cout << '\n';
-            counter = (int)CardRank::TWO;
-        } else {
-            ++counter;
-        }
+        if (i % 13 == 0) std::cout << "\n\t";
     }
-    std::cout << '\n';
 }

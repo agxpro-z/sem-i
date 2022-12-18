@@ -10,13 +10,13 @@
  */
 Winner playBlackjack(std::array<Card, 52>& cardDeck) {
 
-    int deckIndex{ 0 };
+    int deckIndex{0};
 
-    int dealerPoints{ cardValue(cardDeck[deckIndex]) };
+    int dealerPoints{cardDeck[deckIndex].value()};
     ++deckIndex;
-    int playerPoints{ cardValue(cardDeck[deckIndex]) };
+    int playerPoints{cardDeck[deckIndex].value()};
     ++deckIndex;
-    playerPoints += cardValue(cardDeck[deckIndex]);
+    playerPoints += cardDeck[deckIndex].value();
     ++deckIndex;
 
     std::cout << "\nPlayer Score: " << playerPoints << '\n';
@@ -30,9 +30,9 @@ Winner playBlackjack(std::array<Card, 52>& cardDeck) {
             case 'h':
             case 'H':
                 std::cout << "Player Card: ";
-                printCard(cardDeck[deckIndex]);
-                playerPoints += cardValue(cardDeck[deckIndex]);
-                std::cout << ", Points: " << cardValue(cardDeck[deckIndex])
+                cardDeck[deckIndex].print();
+                playerPoints += cardDeck[deckIndex].value();
+                std::cout << ", Points: " << cardDeck[deckIndex].value()
                         << " Score: " << playerPoints << "\n";
                 ++deckIndex;
                 if (playerPoints > 21 ) {
@@ -60,9 +60,9 @@ dealer:
         std::cin >> ch_d;
         if (ch_d == 'h' || ch_d == 'H') {
             std::cout << "Dealer card: ";
-            printCard(cardDeck[deckIndex]);
-            dealerPoints += cardValue(cardDeck[deckIndex]);
-            std::cout << ", Points: " << cardValue(cardDeck[deckIndex])
+            cardDeck[deckIndex].print();
+            dealerPoints += cardDeck[deckIndex].value();
+            std::cout << ", Points: " << cardDeck[deckIndex].value()
                     << " Score: " << dealerPoints << "\n";
             ++deckIndex;
 
@@ -93,7 +93,7 @@ void startGame() {
 
 newGame:
     printWelcome();
-    std::array<Card, 52> cardDeck{ creatDeck() };
+    std::array<Card, 52> cardDeck{creatDeck()};
     int gameVar{};
 
     while (true) {
