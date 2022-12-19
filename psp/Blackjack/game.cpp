@@ -4,6 +4,7 @@
 #include "deck.hpp"
 #include "extra.hpp"
 #include "game.hpp"
+#include "player.hpp"
 
 // Returns card points
 int getPoints(const Card& card, int score) {
@@ -22,14 +23,20 @@ Winner playBlackjack(Deck& cardDeck) {
     // Card drawing index
     int deckIndex{0};
 
-    // Give one card to dealer and two to player
-    int playerPoints{cardDeck[deckIndex++].value()};
-    int dealerPoints{cardDeck[deckIndex++].value()};
-    playerPoints += getPoints(cardDeck[deckIndex++], playerPoints);
+    Player player;
+    Dealer dealer;
+
+    // Distribute one card to dealer and two to player
+    std::cout << "\nPlayer's ";
+    player.drawCard(cardDeck, deckIndex++);
+    std::cout << "Dealer's ";
+    dealer.drawCard(cardDeck, deckIndex++);
+    std::cout << "Player's ";
+    player.drawCard(cardDeck, deckIndex++);
 
     // Display score
-    std::cout << "\nPlayer Score: " << playerPoints << '\n';
-    std::cout << "Dealer Score: " << dealerPoints << '\n';
+    std::cout << "\nPlayer Score: " << player.score() << '\n';
+    std::cout << "Dealer Score: " << dealer.score() << '\n';
 
     // Player's turn
     char ch_p{};
@@ -39,15 +46,10 @@ Winner playBlackjack(Deck& cardDeck) {
         switch (ch_p) {
             case 'h':
             case 'H':
-                std::cout << "Player Card: ";
-                cardDeck[deckIndex].print();
-                std::cout << ", Points: " << getPoints(cardDeck[deckIndex], playerPoints);
-                playerPoints += getPoints(cardDeck[deckIndex], playerPoints);
-                std::cout << " Score: " << playerPoints << "\n";
-                ++deckIndex;
-                if (playerPoints > 21 ) {
-                    std::cout << "\nPlayer Score: " << playerPoints << '\n';
-                    std::cout << "Dealer Score: " << dealerPoints << '\n';
+                player.drawCard(cardDeck, deckIndex++);
+                if (player.score() > 21 ) {
+                    std::cout << "\nPlayer Score: " << player.score() << '\n';
+                    std::cout << "Dealer Score: " << dealer.score() << '\n';
                     return Winner::DEALER;
                 }
                 break;
@@ -62,7 +64,7 @@ Winner playBlackjack(Deck& cardDeck) {
     }
 
 dealer:
-    std::cout << "Player points: " << playerPoints << '\n';
+    std::cout << "Player points: " << player.score() << '\n';
 
     // Dealer's turn
     char ch_d{};
@@ -70,22 +72,16 @@ dealer:
         std::cout << "\nDealer's turn, (h)it to draw cards: ";
         std::cin >> ch_d;
         if (ch_d == 'h' || ch_d == 'H') {
-            std::cout << "Dealer card: ";
-            cardDeck[deckIndex].print();
-            std::cout << ", Points: " << getPoints(cardDeck[deckIndex], dealerPoints);
-            dealerPoints += getPoints(cardDeck[deckIndex], dealerPoints);
-            std::cout << " Score: " << dealerPoints << "\n";
-            ++deckIndex;
-
-            if (dealerPoints >= 17 && dealerPoints <= 21 ) {
-                std::cout << "\nPlayer Score: " << playerPoints << '\n';
-                std::cout << "Dealer Score: " << dealerPoints << '\n';
-                if (dealerPoints > playerPoints) return Winner::DEALER;
-                else if (dealerPoints == playerPoints) return Winner::DRAW;
+            dealer.drawCard(cardDeck, deckIndex++);
+            if (dealer.score() >= 17 && dealer.score() <= 21 ) {
+                std::cout << "\nPlayer Score: " << player.score() << '\n';
+                std::cout << "Dealer Score: " << dealer.score() << '\n';
+                if (dealer.score() > player.score()) return Winner::DEALER;
+                else if (dealer.score() == player.score()) return Winner::DRAW;
                 else return Winner::PLAYER;
-            } else if (dealerPoints > 21) {
-                std::cout << "\nPlayer Score: " << playerPoints << '\n';
-                std::cout << "Dealer Score: " << dealerPoints << '\n';
+            } else if (dealer.score() > 21) {
+                std::cout << "\nPlayer Score: " << player.score() << '\n';
+                std::cout << "Dealer Score: " << dealer.score() << '\n';
                 return Winner::PLAYER;
             }
         } else {

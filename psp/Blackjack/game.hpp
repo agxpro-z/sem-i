@@ -13,6 +13,9 @@ enum class Winner {
     DRAW,
 };
 
+// Returns card points
+int getPoints(const Card& card, int score);
+
 /*
  * Blackjack game
  */

@@ -8,7 +8,7 @@ CC_VERSION = -std=c++2a
 CC_FLAGS = -pedantic-errors
 
 # Make Blackjack game
-Blackjack: main.o card.o deck.o extra.o game.o
+Blackjack: main.o card.o deck.o extra.o game.o player.o
 	@echo
 	@echo Linking...
 	@g++ $(CC_VERSION) $(CC_FLAGS) -o $@ $?
@@ -33,6 +33,10 @@ extra.o: extra.cpp
 
 game.o: game.cpp
 	@echo "game.cpp -> game.o"
+	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+
+player.o: player.cpp
+	@echo "player.cpp -> player.o"
 	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
 
 # Clean build dir
