@@ -8,15 +8,14 @@ CC_VERSION = -std=c++2a
 CC_FLAGS = -pedantic-errors
 
 # Make Blackjack game
-binary: main.o card.o deck.o extra.o game.o
+Blackjack: main.o card.o deck.o extra.o game.o
 	@echo
 	@echo Linking...
 	@g++ $(CC_VERSION) $(CC_FLAGS) -o $@ $?
-	@echo "$? -> binary"
+	@echo "$? -> Blackjack"
 
 main.o: main.cpp
-	@echo building...
-	@echo
+	@echo Building...
 	@echo "main.cpp -> main.o"
 	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
 
@@ -39,4 +38,4 @@ game.o: game.cpp
 # Clean build dir
 clean:
 	@echo Cleaing...
-	@rm -f binary *.o
+	@rm -f Blackjack *.o
