@@ -3,6 +3,7 @@
 
 #include "array.hpp"
 #include "card.hpp"
+#include "player.hpp"
 
 /*
  * enum class for result
@@ -13,13 +14,26 @@ enum class Winner {
     DRAW,
 };
 
-// Returns card points
-int getPoints(const Card& card, int score);
+/*
+ * Outcome struct
+ */
+struct Outcome {
+    Winner w{};
+    BasePlayer* p{};
+};
 
 /*
  * Blackjack game
  */
-Winner playBlackjack(array<Card, 52>& cardDeck);
+void playBlackjack(array<Card, 52>& cardDeck);
+
+// Returns card points
+int getPoints(const Card& card, int score);
+
+/*
+ * Display game outcome
+ */
+void outcome(Outcome o);
 
 /*
  * Game menu

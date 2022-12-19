@@ -9,6 +9,13 @@ void clearInput() {
     std::cin.clear();
 }
 
+// Pause game until enter is pressed
+void getKey() {
+    std::cout << "\n Press enter to go back to menu.";
+    clearInput();
+    std::cin.get();
+}
+
 /*
  * Print Game Menu
  */

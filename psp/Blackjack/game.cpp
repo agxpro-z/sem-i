@@ -6,19 +6,10 @@
 #include "game.hpp"
 #include "player.hpp"
 
-// Returns card points
-int getPoints(const Card& card, int score) {
-    // Return 11 score for Ace if score is below 10
-    if (score <= 10 and card.value() == 1)
-        return 11;
-    else
-        return card.value();
-}
-
 /*
  * Blackjack game
  */
-Winner playBlackjack(Deck& cardDeck) {
+Outcome playBlackjack(Deck& cardDeck) {
 
     // Card drawing index
     int deckIndex{0};
@@ -50,7 +41,7 @@ Winner playBlackjack(Deck& cardDeck) {
                 if (player.score() > 21 ) {
                     std::cout << "\nPlayer Score: " << player.score() << '\n';
                     std::cout << "Dealer Score: " << dealer.score() << '\n';
-                    return Winner::DEALER;
+                    return {Winner::DEALER, &dealer};
                 }
                 break;
             case 's':
@@ -76,13 +67,13 @@ dealer:
             if (dealer.score() >= 17 && dealer.score() <= 21 ) {
                 std::cout << "\nPlayer Score: " << player.score() << '\n';
                 std::cout << "Dealer Score: " << dealer.score() << '\n';
-                if (dealer.score() > player.score()) return Winner::DEALER;
-                else if (dealer.score() == player.score()) return Winner::DRAW;
-                else return Winner::PLAYER;
+                if (dealer.score() > player.score()) return {Winner::DEALER, &dealer};
+                else if (dealer.score() == player.score()) return {Winner::DRAW, nullptr};
+                else return {Winner::PLAYER, &player};
             } else if (dealer.score() > 21) {
                 std::cout << "\nPlayer Score: " << player.score() << '\n';
                 std::cout << "Dealer Score: " << dealer.score() << '\n';
-                return Winner::PLAYER;
+                return {Winner::PLAYER, &player};
             }
         } else {
                 std::cout << "Invalid input, try again\n";
@@ -90,27 +81,26 @@ dealer:
         clearInput();
     }
 
-    return Winner::DRAW;
+    return {Winner::DRAW, nullptr};
 }
 
-// Pause game until enter is pressed
-void getKey() {
-    std::cout << "\n Press enter to go back to menu.";
-    clearInput();
-    std::cin.get();
+// Returns card points
+int getPoints(const Card& card, int score) {
+    // Return 11 score for Ace if score is below 10
+    if (score <= 10 and card.value() == 1)
+        return 11;
+    else
+        return card.value();
 }
 
 /*
  * Display game outcome
  */
-void outcome(Winner w) {
-    switch (w) {
+void outcome(Outcome o) {
+    switch (o.w) {
         case Winner::PLAYER:
-            std::cout << "\n\tPlayer wins.\n\a";
-            getKey();
-            break;
         case Winner::DEALER:
-            std::cout << "\n\tDealer wins.\n\a";
+            o.p->won();
             getKey();
             break;
         case Winner::DRAW:

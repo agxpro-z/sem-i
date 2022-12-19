@@ -6,6 +6,9 @@
  */
 void clearInput();
 
+// Pause game until enter is pressed
+void getKey();
+
 /*
  * Print Game Menu
  */
