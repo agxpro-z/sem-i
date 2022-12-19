@@ -10,6 +10,8 @@
  * Blackjack game
  */
 Outcome playBlackjack(Deck& cardDeck) {
+    system(SYS_CLEAR);
+    std::cout << "\tBlackjack\n";
 
     // Card drawing index
     int deckIndex{0};
@@ -121,6 +123,7 @@ void startGame() {
     char gameVar{};
 
     while (true) {
+        system(SYS_CLEAR);
         menu();
         std::cin >> gameVar;
 
@@ -131,12 +134,21 @@ void startGame() {
                 std::cout << "\n\n";
                 break;
             case '2':
-                std::cout << '\n';
+                system(SYS_CLEAR);
+                std::cout << '\n' << "    Card Deck\n\n";
                 cardDeck.print();
                 std::cout << '\n';
+                getKey();
                 break;
             case '3':
-                std::cout << "\nShuffling deck...\n";
+                std::cout << "\nShuffling deck" << std::flush;
+                system(SYS_SLEEP);
+                std::cout << "\rShuffling deck." << std::flush;
+                system(SYS_SLEEP);
+                std::cout << "\rShuffling deck.." << std::flush;
+                system(SYS_SLEEP);
+                std::cout << "\rShuffling deck..." << std::flush;
+                system(SYS_SLEEP);
                 cardDeck.shuffle();
                 std::cout << "\n\n";
                 break;

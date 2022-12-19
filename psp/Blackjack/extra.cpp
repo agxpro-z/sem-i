@@ -26,5 +26,5 @@ void menu() {
     std::cout << "\t    2. Print Deck\n";
     std::cout << "\t    3. Suffle Deck\n";
     std::cout << "\t    4. Exit\n";
-    std::cout << '\n' << "     Enter number of the option: ";
+    std::cout << '\n' << "     Select option: ";
 }

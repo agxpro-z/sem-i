@@ -1,6 +1,10 @@
 #ifndef EXTRA_H
 #define EXTRA_H
 
+// System commands
+constexpr char SYS_CLEAR[]{"clear"};
+constexpr char SYS_SLEEP[]{"sleep 0.5"};
+
 /*
  * Clear cin buffer
  */
