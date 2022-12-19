@@ -25,7 +25,7 @@ Winner playBlackjack(Deck& cardDeck) {
     // Give one card to dealer and two to player
     int playerPoints{cardDeck[deckIndex++].value()};
     int dealerPoints{cardDeck[deckIndex++].value()};
-    playerPoints += cardDeck[deckIndex++].value();
+    playerPoints += getPoints(cardDeck[deckIndex++], playerPoints);
 
     // Display score
     std::cout << "\nPlayer Score: " << playerPoints << '\n';
@@ -67,7 +67,7 @@ dealer:
     // Dealer's turn
     char ch_d{};
     while (true) {
-        std::cout << "\nDealer's turn, hit(h) to draw cards: ";
+        std::cout << "\nDealer's turn, (h)it to draw cards: ";
         std::cin >> ch_d;
         if (ch_d == 'h' || ch_d == 'H') {
             std::cout << "Dealer card: ";
@@ -155,7 +155,7 @@ void startGame() {
                 std::cout << "\n\n";
                 break;
             case '4':
-                std::cout << "\n\tThanks for playing Blackjack\n";
+                std::cout << "\n\tThank you for playing Blackjack\n";
                 return;
             default:
                 std::cout << "Invalid option, choose again.\n\n";
