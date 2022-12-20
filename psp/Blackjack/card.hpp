@@ -1,6 +1,9 @@
 #ifndef CARD_H
 #define CARD_H
 
+constexpr char RANK[] {"A23456789TJKQ"};
+constexpr char SUIT[] {"CDHS"};
+
 /*
  * Card Class
  */
