@@ -141,14 +141,7 @@ void startGame() {
                 getKey();
                 break;
             case '3':
-                std::cout << "\nShuffling deck" << std::flush;
-                system(SYS_SLEEP);
-                std::cout << "\rShuffling deck." << std::flush;
-                system(SYS_SLEEP);
-                std::cout << "\rShuffling deck.." << std::flush;
-                system(SYS_SLEEP);
-                std::cout << "\rShuffling deck..." << std::flush;
-                system(SYS_SLEEP);
+                shufflingAnimation();
                 cardDeck.shuffle();
                 std::cout << "\n\n";
                 break;

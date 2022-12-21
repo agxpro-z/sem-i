@@ -18,4 +18,7 @@ void getKey();
  */
 void menu();
 
+// Shuffling text animation
+void shufflingAnimation();
+
 #endif

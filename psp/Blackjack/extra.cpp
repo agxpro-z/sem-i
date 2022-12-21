@@ -1,6 +1,8 @@
 #include <iostream>
 #include <limits>
 
+#include "extra.hpp"
+
 /*
  * Clear std::cin buffer
  */
@@ -27,4 +29,16 @@ void menu() {
     std::cout << "\t    3. Suffle Deck\n";
     std::cout << "\t    4. Exit\n";
     std::cout << '\n' << "     Select option: ";
+}
+
+// Shuffling text animation
+void shufflingAnimation() {
+    std::cout << "\nShuffling deck" << std::flush;
+    system(SYS_SLEEP);
+    std::cout << "\rShuffling deck." << std::flush;
+    system(SYS_SLEEP);
+    std::cout << "\rShuffling deck.." << std::flush;
+    system(SYS_SLEEP);
+    std::cout << "\rShuffling deck..." << std::flush;
+    system(SYS_SLEEP);
 }
