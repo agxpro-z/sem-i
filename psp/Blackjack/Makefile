@@ -11,33 +11,33 @@ CC_FLAGS = -pedantic-errors
 Blackjack: main.o card.o deck.o extra.o game.o player.o
 	@echo
 	@echo Linking...
-	@g++ $(CC_VERSION) $(CC_FLAGS) -o $@ $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -o $@ $?
 	@echo "$? -> Blackjack"
 
 main.o: main.cpp
 	@echo Building...
 	@echo "main.cpp -> main.o"
-	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -c $?
 
 card.o: card.cpp
 	@echo "card.cpp -> card.o"
-	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -c $?
 
 deck.o: deck.cpp
 	@echo "deck.cpp -> deck.o"
-	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -c $?
 
 extra.o: extra.cpp
 	@echo "extra.cpp -> extra.o"
-	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -c $?
 
 game.o: game.cpp
 	@echo "game.cpp -> game.o"
-	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -c $?
 
 player.o: player.cpp
 	@echo "player.cpp -> player.o"
-	@g++ $(CC_VERSION) $(CC_FLAGS) -c $?
+	@$(CC) $(CC_VERSION) $(CC_FLAGS) -c $?
 
 # Clean build dir
 clean:
