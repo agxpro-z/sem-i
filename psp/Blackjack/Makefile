@@ -11,14 +11,16 @@ CC_FLAGS = -pedantic-errors
 ifeq ($(OS), Windows_NT)
 	BIN = Blackjack.exe
 	CLEAN = del /q *.o
+	EMPTY_LINE = echo.
 else
 	BIN = Blackjack
 	CLEAN = rm -f *.o
+	EMPTY_LINE = echo
 endif
 
 # Make Blackjack game
 blackjack: main.o card.o deck.o extra.o game.o player.o
-	@echo
+	@$(EMPTY_LINE)
 	@echo Linking...
 	@$(CC) $(CC_VERSION) $(CC_FLAGS) -o $(BIN) $?
 	@echo "$? -> $(BIN)"
