@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <ctime> // std::time
 #include <iostream>
 #include <random> // std::mt19937
