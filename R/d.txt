@@ -1,0 +1,26 @@
+        -- OUTPUT --
+
+People Income Date
+   Person Income
+1 Person1  10000
+2 Person2  14000
+3 Person3  24000
+4 Person4  43000
+5 Person5  12323
+6 Person6  13414
+7 Person7  43212
+8 Person8  36000
+
+People with low risk
+   Person Income
+4 Person4  43000
+7 Person7  43212
+8 Person8  36000
+
+People with high risk
+   Person Income
+1 Person1  10000
+2 Person2  14000
+3 Person3  24000
+5 Person5  12323
+6 Person6  13414

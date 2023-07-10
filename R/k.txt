@@ -1,0 +1,41 @@
+        -- OUTPUT --
+
+   ID Age Pointer Department
+1   1  17    9.69        CSE
+2   2  16    9.16        CSE
+3   3  17    7.77        ECE
+4   4  18    6.11        ECE
+5   5  17    6.09        CSE
+6   6  16    9.51        CSE
+7   7  19    6.76        ECE
+8   8  18    8.65        ECE
+9   9  19    6.26        CSE
+10 10  18    7.00        CSE
+
+Modifying Age at row 5
+
+   ID Age Pointer Department
+1   1  17    9.69        CSE
+2   2  16    9.16        CSE
+3   3  17    7.77        ECE
+4   4  18    6.11        ECE
+5   5  19    6.09        CSE
+6   6  16    9.51        CSE
+7   7  19    6.76        ECE
+8   8  18    8.65        ECE
+9   9  19    6.26        CSE
+10 10  18    7.00        CSE
+
+Modifying multiple valus form similar dataset
+
+   ID Age Pointer Department
+1   1  17    9.69        CSE
+2   2  16    9.16        CSE
+3   3  15    7.77        ECE
+4   4  18    6.16        ECE
+5   5  19    6.09        CSE
+6   6  16    9.51        CSE
+7   7  16    6.76        ECE
+8   8  18    8.65        ECE
+9   9  19    8.37        CSE
+10 10  18    7.00        CSE

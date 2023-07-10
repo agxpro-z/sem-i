@@ -1,0 +1,64 @@
+        -- OUTPUT --
+
+Matrix
+       [,1]  [,2]  [,3]  [,4]  [,5]  [,6]  [,7]  [,8]  [,9] [,10]
+ [1,] 0.833 0.551 0.222 0.054 0.052 0.858 0.412 0.004 0.891 0.021
+ [2,] 0.488 0.036 0.096 0.745 0.445 0.257 0.968 0.499 0.485 0.965
+ [3,] 0.665 0.215 0.921 0.834 0.427 0.067 0.103 0.990 0.125 0.415
+ [4,] 0.462 0.024 0.342 0.088 0.789 0.950 0.248 0.685 0.290 0.507
+ [5,] 0.521 0.992 0.426 0.301 0.628 0.426 0.512 0.123 0.571 0.679
+ [6,] 1.000 0.842 0.996 0.618 0.322 0.630 0.777 0.768 0.770 0.418
+ [7,] 0.624 0.018 0.985 0.862 0.736 0.998 0.052 0.076 0.458 0.878
+ [8,] 0.869 0.394 0.305 0.797 0.577 0.937 0.388 0.472 0.243 0.961
+ [9,] 0.738 0.208 0.242 0.117 0.869 0.838 0.409 0.777 0.531 0.118
+[10,] 0.704 0.767 0.356 0.915 0.208 0.106 0.491 0.814 0.586 0.883
+
+Mean of columns
+Column1 mean 0.69
+Column2 mean 0.405
+Column3 mean 0.489
+Column4 mean 0.533
+Column5 mean 0.505
+Column6 mean 0.607
+Column7 mean 0.436
+Column8 mean 0.521
+Column9 mean 0.495
+Column10 mean 0.585
+
+Mean of rows
+Row1 mean 0.39
+Row2 mean 0.498
+Row3 mean 0.476
+Row4 mean 0.438
+Row5 mean 0.518
+Row6 mean 0.714
+Row7 mean 0.569
+Row8 mean 0.594
+Row9 mean 0.485
+Row10 mean 0.583
+
+SD of columns
+Column1 standard deviation 0.176
+Column2 standard deviation 0.364
+Column3 standard deviation 0.342
+Column4 standard deviation 0.353
+Column5 standard deviation 0.263
+Column6 standard deviation 0.364
+Column7 standard deviation 0.28
+Column8 standard deviation 0.347
+Column9 standard deviation 0.234
+Column10 standard deviation 0.345
+
+SD of rows
+Row1 standard deviation 0.37
+Row2 standard deviation 0.323
+Row3 standard deviation 0.354
+Row4 standard deviation 0.301
+Row5 standard deviation 0.232
+Row6 standard deviation 0.222
+Row7 standard deviation 0.394
+Row8 standard deviation 0.274
+Row9 standard deviation 0.305
+Row10 standard deviation 0.285
+
+Sum of diagonal values is 5.074

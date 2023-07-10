@@ -1,0 +1,9 @@
+        -- OUTPUT --
+
+[1] "Four is greater than three"
+[1] "Four is greater than three"
+[1] "Four is greater than three"
+[1] "Next"
+[1] "Three is greater than two"
+[1] "Three is greater than two"
+[1] "Three is greater than two"

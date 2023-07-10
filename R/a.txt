@@ -1,0 +1,30 @@
+        -- OUTPUT --
+
+Original Data Frame
+
+   Name Height
+1   Abc    158
+2   Bcd    160
+3   Cde    147
+4   Def    152
+5   Efg    146
+6   Fgh    134
+7   Ghi    176
+8   Hij    160
+9   Ijk    155
+10  Jkl    166
+
+
+Data Frame after converting heights into meters
+
+   Name Height
+1   Abc   1.58
+2   Bcd   1.60
+3   Cde   1.47
+4   Def   1.52
+5   Efg   1.46
+6   Fgh   1.34
+7   Ghi   1.76
+8   Hij   1.60
+9   Ijk   1.55
+10  Jkl   1.66
